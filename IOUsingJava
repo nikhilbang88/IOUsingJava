@@ -1,0 +1,27 @@
+import java.io.BufferedReader;
+import java.io.FileNotFoundException;
+import java.io.FileReader;
+import java.io.IOException;
+
+public class IOUsingJava {
+
+	public static void main(String[] args) {
+		FileReader reader = null;
+
+		try {
+			reader = new FileReader("c:\\tmp\\test.txt");
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+		}
+		BufferedReader bReader = new BufferedReader(reader);
+		String line = new String("");
+		try {
+			line = bReader.readLine();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		System.out.println(line);
+	}
+
+}
