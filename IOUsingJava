@@ -1,7 +1,11 @@
+package test;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 public class IOUsingJava {
 
@@ -22,6 +26,25 @@ public class IOUsingJava {
 			e.printStackTrace();
 		}
 		System.out.println(line);
+		try {
+			reader.close();
+		} catch (IOException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		
+		PrintWriter writer=null;
+		try {
+			writer = new PrintWriter(new FileWriter("c:\\tmp\\test1.txt"));
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+			System.out.println("In catch");
+		}
+		String temp = "haha";
+		writer.println(temp);
+		writer.close();
+		
 	}
 
 }
