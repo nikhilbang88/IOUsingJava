@@ -9,42 +9,22 @@ import java.io.PrintWriter;
 
 public class IOUsingJava {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws Exception {
 		FileReader reader = null;
 
-		try {
-			reader = new FileReader("c:\\tmp\\test.txt");
-		} catch (FileNotFoundException e) {
-			e.printStackTrace();
-		}
+		reader = new FileReader("c:\\tmp\\test.txt");
 		BufferedReader bReader = new BufferedReader(reader);
 		String line = new String("");
-		try {
-			line = bReader.readLine();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		line = bReader.readLine();
 		System.out.println(line);
-		try {
-			reader.close();
-		} catch (IOException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		
-		PrintWriter writer=null;
-		try {
-			writer = new PrintWriter(new FileWriter("c:\\tmp\\test1.txt"));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-			System.out.println("In catch");
-		}
+		reader.close();
+
+		PrintWriter writer = null;
+		writer = new PrintWriter(new FileWriter("c:\\tmp\\test1.txt"));
 		String temp = "haha";
 		writer.println(temp);
 		writer.close();
-		
+
 	}
 
 }
